@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>All Storage | Estoque</title>
+        <title>All Storage | Produtos</title>
         <%@include file="../pattherns/bibliotecas.jsp"%>       
     </head>
     <body onload="writeCookie('sessionBox','false',3)">
@@ -19,7 +19,7 @@
             <main class="mdl-layout__content">
                 
                 <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col"><h4 class="title">Estoque</h4></div>
+                    <div class="mdl-cell mdl-cell--12-col"><h4 class="title">Produtos</h4></div>
                 </div>
                 
                 <div class="mdl-grid">

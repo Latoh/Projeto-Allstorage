@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.ClientePj" table="cliente_pj" catalog="allstorage" optimistic-lock="version">
+        <id name="idClientePj" type="java.lang.Integer">
+            <column name="id_cliente_pj" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="endereco" class="model.Endereco" fetch="select">
+            <column name="id_endereco" not-null="true" />
+        </many-to-one>
+        <property name="nomeFantasia" type="string">
+            <column name="nome_fantasia" length="60" />
+        </property>
+        <property name="razaoSocial" type="string">
+            <column name="razao_social" length="60" />
+        </property>
+        <property name="inscricaoEstadual" type="java.lang.Long">
+            <column name="inscricao_estadual" />
+        </property>
+        <property name="cnpj" type="long">
+            <column name="cnpj" not-null="true" unique="true" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <set name="contatos" table="contato" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cliente_pj" />
+            </key>
+            <one-to-many class="model.Contato" />
+        </set>
+        <set name="pedidos" table="pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cliente_pj" />
+            </key>
+            <one-to-many class="model.Pedido" />
+        </set>
+    </class>
+</hibernate-mapping>

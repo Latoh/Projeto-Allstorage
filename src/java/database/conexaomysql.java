@@ -24,7 +24,7 @@ public class conexaomysql {
         driver = "com.mysql.fabric.jdbc.FabricMySQLDriver";
         url = "jdbc:mysql://localhost/allstorage";
         usuario = "root";
-        senha = "Flavia1993+";
+        senha = "Cam3r@SLR!";
 
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 

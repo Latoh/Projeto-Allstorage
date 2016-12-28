@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Endereco" table="endereco" catalog="allstorage" optimistic-lock="version">
+        <id name="idEndereco" type="java.lang.Integer">
+            <column name="id_endereco" />
+            <generator class="identity" />
+        </id>
+        <property name="cep" type="string">
+            <column name="cep" length="20" />
+        </property>
+        <property name="nomeRua" type="string">
+            <column name="nome_rua" length="60" />
+        </property>
+        <property name="bairro" type="string">
+            <column name="bairro" length="60" />
+        </property>
+        <property name="cidade" type="string">
+            <column name="cidade" length="60" />
+        </property>
+        <property name="pais" type="string">
+            <column name="pais" length="50" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="50" />
+        </property>
+        <property name="numero" type="java.lang.Integer">
+            <column name="numero" />
+        </property>
+        <property name="complemento" type="string">
+            <column name="complemento" length="45" />
+        </property>
+        <set name="fornecedors" table="fornecedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_endereco" />
+            </key>
+            <one-to-many class="model.Fornecedor" />
+        </set>
+        <set name="clientePjs" table="cliente_pj" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_endereco" not-null="true" />
+            </key>
+            <one-to-many class="model.ClientePj" />
+        </set>
+    </class>
+</hibernate-mapping>

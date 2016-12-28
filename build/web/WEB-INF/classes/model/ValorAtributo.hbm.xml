@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.ValorAtributo" table="valor_atributo" catalog="allstorage" optimistic-lock="version">
+        <id name="idValorAtributo" type="java.lang.Integer">
+            <column name="id_valor_atributo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="atributo" class="model.Atributo" fetch="select">
+            <column name="id_atributo" not-null="true" />
+        </many-to-one>
+        <property name="descricaoValor" type="string">
+            <column name="descricao_valor" length="60" not-null="true" />
+        </property>
+        <property name="idProduto" type="int">
+            <column name="id_produto" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
