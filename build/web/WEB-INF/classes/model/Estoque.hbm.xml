@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Estoque" table="estoque" catalog="allstorage" optimistic-lock="version">
+        <id name="idEstoque" type="java.lang.Integer">
+            <column name="id_estoque" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="produto" class="model.Produto" fetch="select">
+            <column name="id_produto" not-null="true" />
+        </many-to-one>
+        <property name="qtdProduto" type="java.lang.Integer">
+            <column name="qtd_produto" />
+        </property>
+        <property name="dataEntrada" type="timestamp">
+            <column name="data_entrada" length="19" not-null="true" />
+        </property>
+        <property name="dataSaida" type="timestamp">
+            <column name="data_saida" length="19" />
+        </property>
+        <set name="produtosPedidos" table="produtos_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estoque" not-null="true" />
+            </key>
+            <one-to-many class="model.ProdutosPedido" />
+        </set>
+    </class>
+</hibernate-mapping>

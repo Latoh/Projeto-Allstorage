@@ -1,7 +1,21 @@
 function XHConn()
 {
     var xmlhttp, bComplete = false;
-    try {
+    
+    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+      xmlhttp = new XMLHttpRequest();
+    } else if (window.ActiveXObject) { // IE
+      try {
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+      } 
+      catch (e) {
+        try {
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } 
+        catch (e) {}
+      }
+    }
+    /*try {
         xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
     } catch (e) {
         try {
@@ -14,7 +28,7 @@ function XHConn()
             }
         }
     }
-
+*/
     if (!xmlhttp)
         return null;
     this.connect = function (sURL, sMethod, sVars, fnDone) {
@@ -37,7 +51,8 @@ function XHConn()
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             }
 
-            xmlhttp.onreadystatechange = function () {
+            xmlhttp.onReadyStateChange() = function () {
+                
                 if (xmlhttp.readyState == 4 && !bComplete) {
                     bComplete = true;
                     fnDone(xmlhttp);
@@ -421,7 +436,6 @@ function autenticaUsuario(login, senha) {
 
         // tratar retorno AJAX
         if (resultado[1] == "true") {
-            msgAutentica.innerHTML = "";
             window.location('index.jsp');
         } else {
             msgAutentica.innerHTML = "Usuario ou senha invalidos";

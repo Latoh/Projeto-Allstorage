@@ -1,15 +1,18 @@
 <%@page import="seguranca.seguranca"%>
 <%
-    seguranca.autoriza(request, response, session.getAttribute("logado"));
+    //seguranca.autoriza(request, response, session.getAttribute("logado"));
 %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>All Storage</title>
+        <link rel="shortcut icon" href="">
         <%@include file="pattherns/bibliotecas.jsp"%>
     </head>
     <body>
+        
         <!-- Always shows a header, even in smaller screens. -->
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             

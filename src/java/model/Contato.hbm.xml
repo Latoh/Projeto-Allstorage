@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Contato" table="contato" catalog="allstorage" optimistic-lock="version">
+        <id name="idContato" type="java.lang.Integer">
+            <column name="id_contato" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clientePf" class="model.ClientePf" fetch="select">
+            <column name="id_cliente_pf" />
+        </many-to-one>
+        <many-to-one name="clientePj" class="model.ClientePj" fetch="select">
+            <column name="id_cliente_pj" />
+        </many-to-one>
+        <property name="ddd" type="java.lang.Integer">
+            <column name="ddd" />
+        </property>
+        <property name="contato" type="java.lang.Integer">
+            <column name="contato" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <set name="fornecedors" table="fornecedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_contato" />
+            </key>
+            <one-to-many class="model.Fornecedor" />
+        </set>
+    </class>
+</hibernate-mapping>

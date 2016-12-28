@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Fornecedor" table="fornecedor" catalog="allstorage" optimistic-lock="version">
+        <id name="idFornecedor" type="java.lang.Integer">
+            <column name="id_fornecedor" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="contato" class="model.Contato" fetch="select">
+            <column name="id_contato" />
+        </many-to-one>
+        <many-to-one name="endereco" class="model.Endereco" fetch="select">
+            <column name="id_endereco" />
+        </many-to-one>
+        <property name="nomeFantasia" type="string">
+            <column name="nome_fantasia" length="60" />
+        </property>
+        <property name="razaoSocial" type="string">
+            <column name="razao_social" length="60" />
+        </property>
+        <property name="cnpj" type="int">
+            <column name="cnpj" not-null="true" unique="true" />
+        </property>
+        <set name="produtos" table="produto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_fornecedor" />
+            </key>
+            <one-to-many class="model.Produto" />
+        </set>
+    </class>
+</hibernate-mapping>

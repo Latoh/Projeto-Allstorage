@@ -88,9 +88,9 @@ public class produto {
                     + " INNER JOIN "
                     + "categoria ON categoria.id_categoria = produto.id_categoria"
                     + " INNER JOIN "
-                    + "tipo ON tipo.id_categoria = categoria.id_categoria "
+                    + "tipo ON tipo.id_categoria = categoria.id_categoria"
                     + " INNER JOIN "
-                    + "estoque on produto.id_produto = estoque.id_produto";
+                    + "estoque ON produto.id_produto = estoque.id_produto";
             conexao.setQuerySQL(sqlselecionaproduto);
             ResultSet resultado = conexao.setPreparedStatement().executeQuery();
             while (resultado.next()) {
