@@ -1,7 +1,8 @@
 package model;
-// Generated Dec 13, 2016 10:09:37 PM by Hibernate Tools 4.3.1
+// Generated Jan 6, 2017 6:14:38 PM by Hibernate Tools 4.3.1
 
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,20 +15,25 @@ public class Atributo  implements java.io.Serializable {
      private Integer idAtributo;
      private Tipo tipo;
      private String nomeAtributo;
-     private Set<ValorAtributo> valorAtributos = new HashSet<ValorAtributo>(0);
+     private Character tipoDado;
+     private BigDecimal tamDado;
+     private Character stAtributo;
+     private Boolean flObrig;
+     private Set<VendaItemAtributo> vendaItemAtributos = new HashSet<VendaItemAtributo>(0);
+     private Set<ProdutoAtributo> produtoAtributos = new HashSet<ProdutoAtributo>(0);
 
     public Atributo() {
     }
 
-	
-    public Atributo(Tipo tipo, String nomeAtributo) {
-        this.tipo = tipo;
-        this.nomeAtributo = nomeAtributo;
-    }
-    public Atributo(Tipo tipo, String nomeAtributo, Set<ValorAtributo> valorAtributos) {
+    public Atributo(Tipo tipo, String nomeAtributo, Character tipoDado, BigDecimal tamDado, Character stAtributo, Boolean flObrig, Set<VendaItemAtributo> vendaItemAtributos, Set<ProdutoAtributo> produtoAtributos) {
        this.tipo = tipo;
        this.nomeAtributo = nomeAtributo;
-       this.valorAtributos = valorAtributos;
+       this.tipoDado = tipoDado;
+       this.tamDado = tamDado;
+       this.stAtributo = stAtributo;
+       this.flObrig = flObrig;
+       this.vendaItemAtributos = vendaItemAtributos;
+       this.produtoAtributos = produtoAtributos;
     }
    
     public Integer getIdAtributo() {
@@ -51,12 +57,47 @@ public class Atributo  implements java.io.Serializable {
     public void setNomeAtributo(String nomeAtributo) {
         this.nomeAtributo = nomeAtributo;
     }
-    public Set<ValorAtributo> getValorAtributos() {
-        return this.valorAtributos;
+    public Character getTipoDado() {
+        return this.tipoDado;
     }
     
-    public void setValorAtributos(Set<ValorAtributo> valorAtributos) {
-        this.valorAtributos = valorAtributos;
+    public void setTipoDado(Character tipoDado) {
+        this.tipoDado = tipoDado;
+    }
+    public BigDecimal getTamDado() {
+        return this.tamDado;
+    }
+    
+    public void setTamDado(BigDecimal tamDado) {
+        this.tamDado = tamDado;
+    }
+    public Character getStAtributo() {
+        return this.stAtributo;
+    }
+    
+    public void setStAtributo(Character stAtributo) {
+        this.stAtributo = stAtributo;
+    }
+    public Boolean getFlObrig() {
+        return this.flObrig;
+    }
+    
+    public void setFlObrig(Boolean flObrig) {
+        this.flObrig = flObrig;
+    }
+    public Set<VendaItemAtributo> getVendaItemAtributos() {
+        return this.vendaItemAtributos;
+    }
+    
+    public void setVendaItemAtributos(Set<VendaItemAtributo> vendaItemAtributos) {
+        this.vendaItemAtributos = vendaItemAtributos;
+    }
+    public Set<ProdutoAtributo> getProdutoAtributos() {
+        return this.produtoAtributos;
+    }
+    
+    public void setProdutoAtributos(Set<ProdutoAtributo> produtoAtributos) {
+        this.produtoAtributos = produtoAtributos;
     }
 
 

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.ProdutoAtributo" table="produto_atributo" catalog="allstorage" optimistic-lock="version">
+        <composite-id name="id" class="model.ProdutoAtributoId">
+            <key-property name="idProduto" type="int">
+                <column name="id_produto" />
+            </key-property>
+            <key-property name="idAtributo" type="int">
+                <column name="id_atributo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="atributo" class="model.Atributo" update="false" insert="false" fetch="select">
+            <column name="id_atributo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="produto" class="model.Produto" update="false" insert="false" fetch="select">
+            <column name="id_produto" not-null="true" />
+        </many-to-one>
+        <property name="vlrAtributo" type="string">
+            <column name="vlr_atributo" length="300">
+                <comment>Valor do atributo de um produto</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Categoria" table="categoria" catalog="allstorage" optimistic-lock="version">
         <id name="idCategoria" type="java.lang.Integer">
@@ -9,17 +9,26 @@
             <generator class="identity" />
         </id>
         <property name="nomeCategoria" type="string">
-            <column name="nome_categoria" length="60" not-null="true" />
+            <column name="nome_categoria" length="60">
+                <comment>Nome da categoria</comment>
+            </column>
         </property>
-        <set name="produtos" table="produto" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_categoria" not-null="true" />
-            </key>
-            <one-to-many class="model.Produto" />
-        </set>
+        <property name="flEstoque" type="java.lang.Boolean">
+            <column name="fl_estoque">
+                <comment>True: Tem controle de estoque False: N&#227;o tem controle de estoque</comment>
+            </column>
+        </property>
+        <property name="classe" type="string">
+            <column name="classe" length="1">
+                <comment>Indica a classe da categoria P: Produto. Palp&#225;vel S: Servi&#231;o. Trabalho. N&#227;o ter&#225; controle de estoque. Neste caso fl_estoque sempre
+                ser&#225; Falso. Atributos de produto com classe S n&#227;o ter&#227;o valor no cadastro (produto_atributo). Ser&#227;o solicitados no item da venda.</comment>
+            </column>
+        </property>
         <set name="tipos" table="tipo" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_categoria" not-null="true" />
+                <column name="id_categoria">
+                    <comment>Categoria a que o tipo pertence</comment>
+                </column>
             </key>
             <one-to-many class="model.Tipo" />
         </set>

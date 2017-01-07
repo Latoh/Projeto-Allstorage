@@ -1,30 +1,47 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Estoque" table="estoque" catalog="allstorage" optimistic-lock="version">
-        <id name="idEstoque" type="java.lang.Integer">
-            <column name="id_estoque" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="produto" class="model.Produto" fetch="select">
-            <column name="id_produto" not-null="true" />
+        <composite-id name="id" class="model.EstoqueId">
+            <key-property name="idProduto" type="int">
+                <column name="id_produto" />
+            </key-property>
+            <key-property name="dtInicio" type="date">
+                <column name="dt_inicio" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="produto" class="model.Produto" update="false" insert="false" fetch="select">
+            <column name="id_produto" not-null="true">
+                <comment>Identificador do produto que se deseja controlar o estoque</comment>
+            </column>
         </many-to-one>
-        <property name="qtdProduto" type="java.lang.Integer">
-            <column name="qtd_produto" />
+        <property name="dtFim" type="date">
+            <column name="dt_fim" length="10">
+                <comment>Data de t&#233;rmino do per&#237;odo de controle do estoque</comment>
+            </column>
         </property>
-        <property name="dataEntrada" type="timestamp">
-            <column name="data_entrada" length="19" not-null="true" />
+        <property name="qtdAnterior" type="big_decimal">
+            <column name="qtd_anterior" precision="7" scale="3">
+                <comment>Quantidade final do per&#237;odo anterior Caso seja o primeiro per&#237;odo de controle do produto a quantidade deve ser iniciado com 0</comment>
+            </column>
         </property>
-        <property name="dataSaida" type="timestamp">
-            <column name="data_saida" length="19" />
+        <property name="qtdEntrada" type="big_decimal">
+            <column name="qtd_entrada" precision="7" scale="3">
+                <comment>Somatorio de todas as entradas em estoque do referido per&#237;odo de controle.</comment>
+            </column>
         </property>
-        <set name="produtosPedidos" table="produtos_pedido" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_estoque" not-null="true" />
-            </key>
-            <one-to-many class="model.ProdutosPedido" />
-        </set>
+        <property name="qtdSaida" type="big_decimal">
+            <column name="qtd_saida" precision="7" scale="3">
+                <comment>Somatorio de todas as sa&#237;das de estoque do referido per&#237;odo de controle.</comment>
+            </column>
+        </property>
+        <property name="qtdFinal" type="big_decimal">
+            <column name="qtd_final" precision="7" scale="3">
+                <comment>Quantidade final do referido per&#237;odo. Caso o per&#237;odo n&#227;o tenha sido finalizado, ir&#225; representar a quantidade atual em
+                estoque</comment>
+            </column>
+        </property>
     </class>
 </hibernate-mapping>

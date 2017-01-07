@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Atributo" table="atributo" catalog="allstorage" optimistic-lock="version">
         <id name="idAtributo" type="java.lang.Integer">
@@ -9,16 +9,47 @@
             <generator class="identity" />
         </id>
         <many-to-one name="tipo" class="model.Tipo" fetch="select">
-            <column name="id_tipo" not-null="true" />
+            <column name="id_tipo">
+                <comment>Identificador do tipo de produto que o atributo est&#225; associado</comment>
+            </column>
         </many-to-one>
         <property name="nomeAtributo" type="string">
-            <column name="nome_atributo" length="60" not-null="true" />
+            <column name="nome_atributo" length="60">
+                <comment>Nome do atributo</comment>
+            </column>
         </property>
-        <set name="valorAtributos" table="valor_atributo" inverse="true" lazy="true" fetch="select">
+        <property name="tipoDado" type="java.lang.Character">
+            <column name="tipo_dado" length="1">
+                <comment>Tipo de dado que um atribuito ir&#225; armazenar. Dominio: D-Data;C-Caracteres;N-Numero</comment>
+            </column>
+        </property>
+        <property name="tamDado" type="big_decimal">
+            <column name="tam_dado" precision="4" scale="1">
+                <comment>Tamanho do valor do atributo</comment>
+            </column>
+        </property>
+        <property name="stAtributo" type="java.lang.Character">
+            <column name="st_atributo" length="1">
+                <comment>Status do atributo: A-Ativo; I-Inativo</comment>
+            </column>
+        </property>
+        <property name="flObrig" type="java.lang.Boolean">
+            <column name="fl_obrig">
+                <comment>Flag que indica obrigatoriedade do valor do atributo para o produto no momento do seu cadastro/atualiza&#231;&#227;o 0-N&#227;o;
+                1-Obrigat&#243;rio</comment>
+            </column>
+        </property>
+        <set name="vendaItemAtributos" table="venda_item_atributo" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_atributo" not-null="true" />
             </key>
-            <one-to-many class="model.ValorAtributo" />
+            <one-to-many class="model.VendaItemAtributo" />
+        </set>
+        <set name="produtoAtributos" table="produto_atributo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_atributo" not-null="true" />
+            </key>
+            <one-to-many class="model.ProdutoAtributo" />
         </set>
     </class>
 </hibernate-mapping>

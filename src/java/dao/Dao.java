@@ -14,10 +14,9 @@ import java.util.List;
  */
 public interface Dao {
     
-    public void save(Contato contato);
-    public Contato getContato(long id);
+    public void save();
     public List<Contato> list();
-    public void remove(Contato contato);
-    public void update(Contato contato);
+    public void remove();
+    public void update();
 
 }

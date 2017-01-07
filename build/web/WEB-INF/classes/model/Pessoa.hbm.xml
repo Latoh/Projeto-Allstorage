@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Pessoa" table="pessoa" catalog="allstorage" optimistic-lock="version">
+        <id name="idPessoa" type="java.lang.Integer">
+            <column name="id_pessoa" />
+            <generator class="identity" />
+        </id>
+        <property name="primNome" type="string">
+            <column name="prim_nome" length="60" not-null="true">
+                <comment>Se for PF: Primeiro nome da pessoa Se for PJ: Nome de fantasia</comment>
+            </column>
+        </property>
+        <property name="sobrenome" type="string">
+            <column name="sobrenome" length="60">
+                <comment>Se for PF: Sobrenome da pessoa Se for PJ: Raz&#227;o social</comment>
+            </column>
+        </property>
+        <property name="codDocumento" type="string">
+            <column name="cod_documento" length="20">
+                <comment>Documento da pessoa. Se for PF: CPF Se for PJ: CNPJ</comment>
+            </column>
+        </property>
+        <property name="stPessoa" type="char">
+            <column name="st_pessoa" length="1" not-null="true">
+                <comment>Status da Pessoa. A-Ativa I-Inativa. N&#227;o poder&#225; se relacionar a novas vendas.</comment>
+            </column>
+        </property>
+        <set name="contatos" table="contato" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" not-null="true" />
+            </key>
+            <one-to-many class="model.Contato" />
+        </set>
+        <one-to-one name="fornecedor" class="model.Fornecedor"></one-to-one>
+        <one-to-one name="cliente" class="model.Cliente"></one-to-one>
+        <set name="enderecos" table="endereco" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_pessoa" not-null="true" />
+            </key>
+            <one-to-many class="model.Endereco" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Venda" table="venda" catalog="allstorage" optimistic-lock="version">
+        <id name="idVenda" type="java.lang.Integer">
+            <column name="id_venda" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="model.Cliente" fetch="select">
+            <column name="id_cliente" not-null="true">
+                <comment>Identificador do cliente</comment>
+            </column>
+        </many-to-one>
+        <property name="dtVenda" type="timestamp">
+            <column name="dt_venda" length="19" not-null="true">
+                <comment>Data de in&#237;cio da venda</comment>
+            </column>
+        </property>
+        <property name="stVenda" type="java.lang.Character">
+            <column name="st_venda" length="1">
+                <comment>Status da venda A-Aberta; Rec&#233;m criada e aberta para edi&#231;&#227;o de itens. R-Reservada. Quantidade de cada item j&#225; foi verificada para
+                atendimento do pedido. Para reservar um pedido, dever&#225; ser calculada a disponibilidade: qtd_final - somatoria de vendas com status Reservada do produto)
+                C-Cancelada. Venda n&#227;o conclu&#237;da sem possibilidade de edi&#231;&#227;o. F-Finalizada. Quantidades em estoque foram baixadas para os itens da venda. Se
+                status do pedido for de A para F, a valida&#231;&#227;o de reserva dever&#225; ser feita. E-Entregue. J&#225; finalizada e todos os itens da venda foram entregues
+                ao cliente</comment>
+            </column>
+        </property>
+        <property name="dtStatus" type="timestamp">
+            <column name="dt_status" length="19">
+                <comment>Data da atualiza&#231;&#227;o do status da venda.</comment>
+            </column>
+        </property>
+        <property name="vlrTotal" type="big_decimal">
+            <column name="vlr_total" precision="10">
+                <comment>Valor total da venda.</comment>
+            </column>
+        </property>
+        <property name="dtPrevista" type="date">
+            <column name="dt_prevista" length="10">
+                <comment>Data prevista para a conclus&#227;o da venda e entrega dos itens</comment>
+            </column>
+        </property>
+        <set name="vendaItems" table="venda_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_venda" not-null="true">
+                    <comment>Identificador da venda relacionada ao item</comment>
+                </column>
+            </key>
+            <one-to-many class="model.VendaItem" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.VendaItem" table="venda_item" catalog="allstorage" optimistic-lock="version">
+        <id name="idItem" type="int">
+            <column name="id_item" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="produto" class="model.Produto" fetch="select">
+            <column name="id_produto" not-null="true">
+                <comment>Identificador do produto</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="venda" class="model.Venda" fetch="select">
+            <column name="id_venda" not-null="true">
+                <comment>Identificador da venda relacionada ao item</comment>
+            </column>
+        </many-to-one>
+        <property name="qtdVenda" type="big_decimal">
+            <column name="qtd_venda" precision="7" scale="3">
+                <comment>Quantidade vendida do produto</comment>
+            </column>
+        </property>
+        <property name="precoUnit" type="big_decimal">
+            <column name="preco_unit" precision="8" scale="4">
+                <comment>Pre&#231;o da unitario do item da venda. Este pre&#231;o tem o valor default da tabela do produto, por&#233;m o usu&#225;rio poder&#225; altera-lo no
+                momento da venda de forma particular no item</comment>
+            </column>
+        </property>
+        <property name="stItem" type="java.lang.Character">
+            <column name="st_item" length="1">
+                <comment>Status do item da venda. N-Normal. Seguir&#225; o status da venda. C-Cancelado. Item cancelado. Nenhuma reserva de estoque ser&#225; feita. Somente
+                poder&#225; cancelar um item caso a venda n&#227;o tenha sido finalizada. E-Entregue. J&#225; finalizada e o item foi entregue ao cliente</comment>
+            </column>
+        </property>
+        <property name="obsItem" type="string">
+            <column name="obs_item" length="200">
+                <comment>Observa&#231;&#245;es espec&#237;ficas para o item</comment>
+            </column>
+        </property>
+        <property name="dtStatus" type="timestamp">
+            <column name="dt_status" length="19">
+                <comment>Data da atualiza&#231;&#227;o do status do item da venda</comment>
+            </column>
+        </property>
+        <set name="vendaItemAtributos" table="venda_item_atributo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_item" not-null="true" />
+            </key>
+            <one-to-many class="model.VendaItemAtributo" />
+        </set>
+    </class>
+</hibernate-mapping>

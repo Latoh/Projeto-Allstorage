@@ -1,7 +1,6 @@
 package controller;
 
 import dao.DaoContato;
-import dao.DaoContato;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;

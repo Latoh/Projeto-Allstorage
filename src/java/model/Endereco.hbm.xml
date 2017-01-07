@@ -1,18 +1,28 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Endereco" table="endereco" catalog="allstorage" optimistic-lock="version">
-        <id name="idEndereco" type="java.lang.Integer">
+        <id name="idEndereco" type="int">
             <column name="id_endereco" />
-            <generator class="identity" />
+            <generator class="assigned" />
         </id>
+        <many-to-one name="pessoa" class="model.Pessoa" fetch="select">
+            <column name="id_pessoa" not-null="true" />
+        </many-to-one>
+        <property name="tipoEndereco" type="char">
+            <column name="tipo_endereco" length="1" not-null="true">
+                <comment>Tipo do endere&#231;o da pessoa: P-Principal; R-Residencial; C-Comercial; O-Outros; B-Cobran&#231;a; E-Email</comment>
+            </column>
+        </property>
         <property name="cep" type="string">
             <column name="cep" length="20" />
         </property>
         <property name="nomeRua" type="string">
-            <column name="nome_rua" length="60" />
+            <column name="nome_rua" length="90">
+                <comment>Caso tipo_endere&#231;o = "E", armazenar endere&#231;o de e-mail</comment>
+            </column>
         </property>
         <property name="bairro" type="string">
             <column name="bairro" length="60" />
@@ -32,17 +42,5 @@
         <property name="complemento" type="string">
             <column name="complemento" length="45" />
         </property>
-        <set name="fornecedors" table="fornecedor" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_endereco" />
-            </key>
-            <one-to-many class="model.Fornecedor" />
-        </set>
-        <set name="clientePjs" table="cliente_pj" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_endereco" not-null="true" />
-            </key>
-            <one-to-many class="model.ClientePj" />
-        </set>
     </class>
 </hibernate-mapping>

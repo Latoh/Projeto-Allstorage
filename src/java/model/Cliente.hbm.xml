@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Cliente" table="cliente" catalog="allstorage" optimistic-lock="version">
+        <id name="idCliente" type="int">
+            <column name="id_cliente" />
+            <generator class="foreign">
+                <param name="property">pessoa</param>
+            </generator>
+        </id>
+        <one-to-one name="pessoa" class="model.Pessoa" constrained="true"></one-to-one>
+        <set name="vendas" table="venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_cliente" not-null="true">
+                    <comment>Identificador do cliente</comment>
+                </column>
+            </key>
+            <one-to-many class="model.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>

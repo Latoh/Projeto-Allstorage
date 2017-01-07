@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 13, 2016 10:09:37 PM by Hibernate Tools 4.3.1
+// Generated Jan 6, 2017 6:14:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,71 +11,35 @@ import java.util.Set;
 public class Fornecedor  implements java.io.Serializable {
 
 
-     private Integer idFornecedor;
-     private Contato contato;
-     private Endereco endereco;
-     private String nomeFantasia;
-     private String razaoSocial;
-     private int cnpj;
+     private int idFornecedor;
+     private Pessoa pessoa;
      private Set<Produto> produtos = new HashSet<Produto>(0);
 
     public Fornecedor() {
     }
 
 	
-    public Fornecedor(int cnpj) {
-        this.cnpj = cnpj;
+    public Fornecedor(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
-    public Fornecedor(Contato contato, Endereco endereco, String nomeFantasia, String razaoSocial, int cnpj, Set<Produto> produtos) {
-       this.contato = contato;
-       this.endereco = endereco;
-       this.nomeFantasia = nomeFantasia;
-       this.razaoSocial = razaoSocial;
-       this.cnpj = cnpj;
+    public Fornecedor(Pessoa pessoa, Set<Produto> produtos) {
+       this.pessoa = pessoa;
        this.produtos = produtos;
     }
    
-    public Integer getIdFornecedor() {
+    public int getIdFornecedor() {
         return this.idFornecedor;
     }
     
-    public void setIdFornecedor(Integer idFornecedor) {
+    public void setIdFornecedor(int idFornecedor) {
         this.idFornecedor = idFornecedor;
     }
-    public Contato getContato() {
-        return this.contato;
+    public Pessoa getPessoa() {
+        return this.pessoa;
     }
     
-    public void setContato(Contato contato) {
-        this.contato = contato;
-    }
-    public Endereco getEndereco() {
-        return this.endereco;
-    }
-    
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-    public String getNomeFantasia() {
-        return this.nomeFantasia;
-    }
-    
-    public void setNomeFantasia(String nomeFantasia) {
-        this.nomeFantasia = nomeFantasia;
-    }
-    public String getRazaoSocial() {
-        return this.razaoSocial;
-    }
-    
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
-    }
-    public int getCnpj() {
-        return this.cnpj;
-    }
-    
-    public void setCnpj(int cnpj) {
-        this.cnpj = cnpj;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
     public Set<Produto> getProdutos() {
         return this.produtos;
