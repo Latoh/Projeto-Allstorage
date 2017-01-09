@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Usuario" table="usuario" catalog="allstorage" optimistic-lock="version">
         <id name="idUsuario" type="java.lang.Integer">
@@ -9,10 +9,10 @@
             <generator class="identity" />
         </id>
         <property name="senha" type="string">
-            <column name="senha" length="32" not-null="true" />
+            <column name="senha" length="32" />
         </property>
         <property name="login" type="string">
-            <column name="login" length="60" not-null="true" />
+            <column name="login" length="60" />
         </property>
         <property name="status" type="int">
             <column name="status" not-null="true" />

@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 13, 2016 10:09:37 PM by Hibernate Tools 4.3.1
+// Generated Jan 6, 2017 6:14:38 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,19 +13,17 @@ public class Categoria  implements java.io.Serializable {
 
      private Integer idCategoria;
      private String nomeCategoria;
-     private Set<Produto> produtos = new HashSet<Produto>(0);
+     private Boolean flEstoque;
+     private String classe;
      private Set<Tipo> tipos = new HashSet<Tipo>(0);
 
     public Categoria() {
     }
 
-	
-    public Categoria(String nomeCategoria) {
-        this.nomeCategoria = nomeCategoria;
-    }
-    public Categoria(String nomeCategoria, Set<Produto> produtos, Set<Tipo> tipos) {
+    public Categoria(String nomeCategoria, Boolean flEstoque, String classe, Set<Tipo> tipos) {
        this.nomeCategoria = nomeCategoria;
-       this.produtos = produtos;
+       this.flEstoque = flEstoque;
+       this.classe = classe;
        this.tipos = tipos;
     }
    
@@ -43,12 +41,19 @@ public class Categoria  implements java.io.Serializable {
     public void setNomeCategoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
     }
-    public Set<Produto> getProdutos() {
-        return this.produtos;
+    public Boolean getFlEstoque() {
+        return this.flEstoque;
     }
     
-    public void setProdutos(Set<Produto> produtos) {
-        this.produtos = produtos;
+    public void setFlEstoque(Boolean flEstoque) {
+        this.flEstoque = flEstoque;
+    }
+    public String getClasse() {
+        return this.classe;
+    }
+    
+    public void setClasse(String classe) {
+        this.classe = classe;
     }
     public Set<Tipo> getTipos() {
         return this.tipos;

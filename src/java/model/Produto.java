@@ -1,5 +1,5 @@
 package model;
-// Generated Dec 13, 2016 10:09:37 PM by Hibernate Tools 4.3.1
+// Generated Jan 6, 2017 6:14:38 PM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -14,33 +14,33 @@ public class Produto  implements java.io.Serializable {
 
 
      private Integer idProduto;
-     private Categoria categoria;
-     private Fornecedor fornecedor;
+     private Tipo tipo;
      private String nomeProduto;
-     private String marca;
-     private Date dataCadastro;
-     private BigDecimal preco;
+     private Date dtCadastro;
+     private BigDecimal precoVenda;
      private String codProd;
      private String imagem;
+     private Character stProduto;
+     private Set<VendaItem> vendaItems = new HashSet<VendaItem>(0);
      private Set<Estoque> estoques = new HashSet<Estoque>(0);
+     private Set<Fornecedor> fornecedors = new HashSet<Fornecedor>(0);
+     private Set<ProdutoAtributo> produtoAtributos = new HashSet<ProdutoAtributo>(0);
 
     public Produto() {
     }
 
-	
-    public Produto(Categoria categoria) {
-        this.categoria = categoria;
-    }
-    public Produto(Categoria categoria, Fornecedor fornecedor, String nomeProduto, String marca, Date dataCadastro, BigDecimal preco, String codProd, String imagem, Set<Estoque> estoques) {
-       this.categoria = categoria;
-       this.fornecedor = fornecedor;
+    public Produto(Tipo tipo, String nomeProduto, Date dtCadastro, BigDecimal precoVenda, String codProd, String imagem, Character stProduto, Set<VendaItem> vendaItems, Set<Estoque> estoques, Set<Fornecedor> fornecedors, Set<ProdutoAtributo> produtoAtributos) {
+       this.tipo = tipo;
        this.nomeProduto = nomeProduto;
-       this.marca = marca;
-       this.dataCadastro = dataCadastro;
-       this.preco = preco;
+       this.dtCadastro = dtCadastro;
+       this.precoVenda = precoVenda;
        this.codProd = codProd;
        this.imagem = imagem;
+       this.stProduto = stProduto;
+       this.vendaItems = vendaItems;
        this.estoques = estoques;
+       this.fornecedors = fornecedors;
+       this.produtoAtributos = produtoAtributos;
     }
    
     public Integer getIdProduto() {
@@ -50,19 +50,12 @@ public class Produto  implements java.io.Serializable {
     public void setIdProduto(Integer idProduto) {
         this.idProduto = idProduto;
     }
-    public Categoria getCategoria() {
-        return this.categoria;
+    public Tipo getTipo() {
+        return this.tipo;
     }
     
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-    public Fornecedor getFornecedor() {
-        return this.fornecedor;
-    }
-    
-    public void setFornecedor(Fornecedor fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
     }
     public String getNomeProduto() {
         return this.nomeProduto;
@@ -71,26 +64,19 @@ public class Produto  implements java.io.Serializable {
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
-    public String getMarca() {
-        return this.marca;
+    public Date getDtCadastro() {
+        return this.dtCadastro;
     }
     
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setDtCadastro(Date dtCadastro) {
+        this.dtCadastro = dtCadastro;
     }
-    public Date getDataCadastro() {
-        return this.dataCadastro;
-    }
-    
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-    public BigDecimal getPreco() {
-        return this.preco;
+    public BigDecimal getPrecoVenda() {
+        return this.precoVenda;
     }
     
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
+    public void setPrecoVenda(BigDecimal precoVenda) {
+        this.precoVenda = precoVenda;
     }
     public String getCodProd() {
         return this.codProd;
@@ -106,12 +92,40 @@ public class Produto  implements java.io.Serializable {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+    public Character getStProduto() {
+        return this.stProduto;
+    }
+    
+    public void setStProduto(Character stProduto) {
+        this.stProduto = stProduto;
+    }
+    public Set<VendaItem> getVendaItems() {
+        return this.vendaItems;
+    }
+    
+    public void setVendaItems(Set<VendaItem> vendaItems) {
+        this.vendaItems = vendaItems;
+    }
     public Set<Estoque> getEstoques() {
         return this.estoques;
     }
     
     public void setEstoques(Set<Estoque> estoques) {
         this.estoques = estoques;
+    }
+    public Set<Fornecedor> getFornecedors() {
+        return this.fornecedors;
+    }
+    
+    public void setFornecedors(Set<Fornecedor> fornecedors) {
+        this.fornecedors = fornecedors;
+    }
+    public Set<ProdutoAtributo> getProdutoAtributos() {
+        return this.produtoAtributos;
+    }
+    
+    public void setProdutoAtributos(Set<ProdutoAtributo> produtoAtributos) {
+        this.produtoAtributos = produtoAtributos;
     }
 
 

@@ -6775,7 +6775,7 @@ input.mdl-button[type="submit"] {
 .mdl-progress > .auxbar {
   right: 0; }
 
-@supports (-webkit-appearance: none) {
+@supports (-webkit-appearance:none) {
   .mdl-progress:not(.mdl-progress--indeterminate):not(.mdl-progress--indeterminate) > .auxbar,
   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, rgb(63,81,181), rgb(63,81,181));
@@ -7400,7 +7400,7 @@ input.mdl-button[type="submit"] {
   .mdl-layout__obfuscator.is-visible {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible; }
-  @supports (pointer-events: auto) {
+  @supports (pointer-events:auto) {
     .mdl-layout__obfuscator {
       background-color: rgba(0, 0, 0, 0.5);
       opacity: 0;

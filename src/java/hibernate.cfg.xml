@@ -49,19 +49,20 @@ Contributor(s):
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="model/Pedido.hbm.xml"/>
-    <mapping resource="model/Atributo.hbm.xml"/>
-    <mapping resource="model/ClientePj.hbm.xml"/>
-    <mapping resource="model/Estoque.hbm.xml"/>
-    <mapping resource="model/Categoria.hbm.xml"/>
-    <mapping resource="model/Contato.hbm.xml"/>
-    <mapping resource="model/Fornecedor.hbm.xml"/>
-    <mapping resource="model/Tipo.hbm.xml"/>
-    <mapping resource="model/ProdutosPedido.hbm.xml"/>
-    <mapping resource="model/Produto.hbm.xml"/>
-    <mapping resource="model/Usuario.hbm.xml"/>
-    <mapping resource="model/ValorAtributo.hbm.xml"/>
-    <mapping resource="model/ClientePf.hbm.xml"/>
+    <mapping resource="model/Venda.hbm.xml"/>
     <mapping resource="model/Endereco.hbm.xml"/>
+    <mapping resource="model/VendaItemAtributo.hbm.xml"/>
+    <mapping resource="model/Fornecedor.hbm.xml"/>
+    <mapping resource="model/Usuario.hbm.xml"/>
+    <mapping resource="model/Cliente.hbm.xml"/>
+    <mapping resource="model/Pessoa.hbm.xml"/>
+    <mapping resource="model/Tipo.hbm.xml"/>
+    <mapping resource="model/Estoque.hbm.xml"/>
+    <mapping resource="model/Contato.hbm.xml"/>
+    <mapping resource="model/ProdutoAtributo.hbm.xml"/>
+    <mapping resource="model/Categoria.hbm.xml"/>
+    <mapping resource="model/VendaItem.hbm.xml"/>
+    <mapping resource="model/Produto.hbm.xml"/>
+    <mapping resource="model/Atributo.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
