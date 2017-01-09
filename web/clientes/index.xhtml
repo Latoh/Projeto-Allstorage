@@ -1,7 +1,8 @@
 <ui:composition template="/pattherns/template.xhtml"
 
 xmlns:ui="http://java.sun.com/jsf/facelets"
-xmlns:f="http://xmlns.jcp.org/jsf/core">
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:h="http://xmlns.jcp.org/jsf/html">
     
         <ui:define name="title">AllStorage | Clientes</ui:define>
         <ui:define name="content">
@@ -13,9 +14,13 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
                     </div>
                         <div class="mdl-grid">
                             <div class="mdl-cell mdl-cell--6-col">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="addCliente" onclick="window.location('formularioCadastro.jsp')">
-                                    Novo cliente
-                                </button>
+                                <h:form>
+                                <h:button onclick="target='_Cadastro'" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="addCliente" value=" Novo cliente ">
+                                    
+</h:button>
+                                </h:form>
+                                
+                                <h:commandButton value="submit" type="submit" action="#{form}"/>
                             </div>
                             <div class="mdl-tooltip mdl-tooltip--large" for="addCliente">Novo cliente</div>
                             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-cell--12-col">

@@ -7,7 +7,7 @@ package dao;
 
 import model.Contato;
 import java.util.List;
-
+import model.ClientePf;
 /**
  *
  * @author Daan
@@ -19,5 +19,12 @@ public interface Dao {
     public List<Contato> list();
     public void remove(Contato contato);
     public void update(Contato contato);
+
+    
+    public void save(ClientePf cliente);
+    public ClientePf getClientePf(long id);
+    public List<ClientePf> listcliente();
+    public void remove(ClientePf cliente);
+    public void update(ClientePf cliente);
 
 }

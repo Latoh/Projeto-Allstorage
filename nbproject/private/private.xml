@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Daan/Documents/NetBeans%20Projects/allStorageHibernate/allStorage/web/clientes/index.xhtml</file>
+            <file>file:/C:/Users/felip/OneDrive/Documentos/NetBeansProjects/allStorage/web/clientes/index.xhtml</file>
+            <file>file:/C:/Users/felip/OneDrive/Documentos/NetBeansProjects/allStorage/src/java/controller/ClienteController.java</file>
+            <file>file:/C:/Users/felip/OneDrive/Documentos/NetBeansProjects/allStorage/src/java/controller/ContatoController.java</file>
+            <file>file:/C:/Users/felip/OneDrive/Documentos/NetBeansProjects/allStorage/web/clientes/Cadastro.xhtml</file>
+            <file>file:/C:/Users/felip/OneDrive/Documentos/NetBeansProjects/allStorage/src/java/dao/DaoCliente.java</file>
+            <file>file:/C:/Users/felip/OneDrive/Documentos/NetBeansProjects/allStorage/src/java/dao/Dao.java</file>
+            <file>file:/C:/Users/felip/OneDrive/Documentos/NetBeansProjects/allStorage/web/clientes/formularioCadastro.jsp</file>
         </group>
     </open-files>
 </project-private>
