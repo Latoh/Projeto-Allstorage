@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Tipo" table="tipo" catalog="allstorage" optimistic-lock="version">
         <id name="idTipo" type="java.lang.Integer">
@@ -9,14 +9,28 @@
             <generator class="identity" />
         </id>
         <many-to-one name="categoria" class="model.Categoria" fetch="select">
-            <column name="id_categoria" not-null="true" />
+            <column name="id_categoria">
+                <comment>Categoria a que o tipo pertence</comment>
+            </column>
         </many-to-one>
         <property name="nomeTipo" type="string">
-            <column name="nome_tipo" length="60" />
+            <column name="nome_tipo" length="60">
+                <comment>Nome do tipo do produto</comment>
+            </column>
         </property>
+        <set name="produtos" table="produto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_tipo">
+                    <comment>Identificador do tipo a que o produto est&#225; associado</comment>
+                </column>
+            </key>
+            <one-to-many class="model.Produto" />
+        </set>
         <set name="atributos" table="atributo" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_tipo" not-null="true" />
+                <column name="id_tipo">
+                    <comment>Identificador do tipo de produto que o atributo est&#225; associado</comment>
+                </column>
             </key>
             <one-to-many class="model.Atributo" />
         </set>

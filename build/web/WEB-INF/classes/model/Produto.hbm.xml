@@ -1,42 +1,77 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 13, 2016 10:09:39 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 6, 2017 6:14:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Produto" table="produto" catalog="allstorage" optimistic-lock="version">
         <id name="idProduto" type="java.lang.Integer">
             <column name="id_produto" />
             <generator class="identity" />
         </id>
-        <many-to-one name="categoria" class="model.Categoria" fetch="select">
-            <column name="id_categoria" not-null="true" />
-        </many-to-one>
-        <many-to-one name="fornecedor" class="model.Fornecedor" fetch="select">
-            <column name="id_fornecedor" />
+        <many-to-one name="tipo" class="model.Tipo" fetch="select">
+            <column name="id_tipo">
+                <comment>Identificador do tipo a que o produto est&#225; associado</comment>
+            </column>
         </many-to-one>
         <property name="nomeProduto" type="string">
-            <column name="nome_produto" length="60" />
+            <column name="nome_produto" length="50">
+                <comment>Nome / descri&#231;&#227;o do produto</comment>
+            </column>
         </property>
-        <property name="marca" type="string">
-            <column name="marca" length="60" />
+        <property name="dtCadastro" type="date">
+            <column name="dt_cadastro" length="10">
+                <comment>Data de cadastro do produto no banco de dados.</comment>
+            </column>
         </property>
-        <property name="dataCadastro" type="date">
-            <column name="data_cadastro" length="10" />
-        </property>
-        <property name="preco" type="big_decimal">
-            <column name="preco" precision="8" scale="4" />
+        <property name="precoVenda" type="big_decimal">
+            <column name="preco_venda" precision="10">
+                <comment>Pre&#231;o de venda atual do produto</comment>
+            </column>
         </property>
         <property name="codProd" type="string">
-            <column name="cod_prod" length="20" />
+            <column name="cod_prod" length="20">
+                <comment>C&#243;digo do produto definido pelo usu&#225;rio</comment>
+            </column>
         </property>
         <property name="imagem" type="string">
-            <column name="imagem" length="244" />
+            <column name="imagem" length="244">
+                <comment>Endere&#231;o do link da imagem do produto</comment>
+            </column>
         </property>
+        <property name="stProduto" type="java.lang.Character">
+            <column name="st_produto" length="1">
+                <comment>Status do produto A-Ativo; I-Inativo (N&#227;o mais comercializado); S-Suspenso (Temporariamente n&#227;o comercializado)</comment>
+            </column>
+        </property>
+        <set name="vendaItems" table="venda_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_produto" not-null="true">
+                    <comment>Identificador do produto</comment>
+                </column>
+            </key>
+            <one-to-many class="model.VendaItem" />
+        </set>
         <set name="estoques" table="estoque" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_produto" not-null="true">
+                    <comment>Identificador do produto que se deseja controlar o estoque</comment>
+                </column>
+            </key>
+            <one-to-many class="model.Estoque" />
+        </set>
+        <set name="fornecedors" table="produto_fornecedor" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_produto" not-null="true" />
             </key>
-            <one-to-many class="model.Estoque" />
+            <many-to-many entity-name="model.Fornecedor">
+                <column name="id_fornecedor" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="produtoAtributos" table="produto_atributo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_produto" not-null="true" />
+            </key>
+            <one-to-many class="model.ProdutoAtributo" />
         </set>
     </class>
 </hibernate-mapping>

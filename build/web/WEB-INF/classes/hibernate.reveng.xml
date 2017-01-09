@@ -41,18 +41,20 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="allstorage"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="venda_item_atributo"/>
+  <table-filter match-name="endereco"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="atributo"/>
+  <table-filter match-name="venda_item"/>
+  <table-filter match-name="tipo"/>
+  <table-filter match-name="categoria"/>
+  <table-filter match-name="pessoa"/>
+  <table-filter match-name="produto_atributo"/>
+  <table-filter match-name="fornecedor"/>
+  <table-filter match-name="produto_fornecedor"/>
   <table-filter match-name="estoque"/>
   <table-filter match-name="produto"/>
-  <table-filter match-name="fornecedor"/>
-  <table-filter match-name="cliente_pj"/>
-  <table-filter match-name="cliente_pf"/>
-  <table-filter match-name="usuario"/>
-  <table-filter match-name="produtos_pedido"/>
-  <table-filter match-name="categoria"/>
-  <table-filter match-name="pedido"/>
-  <table-filter match-name="endereco"/>
   <table-filter match-name="contato"/>
-  <table-filter match-name="tipo"/>
-  <table-filter match-name="atributo"/>
-  <table-filter match-name="valor_atributo"/>
+  <table-filter match-name="venda"/>
 </hibernate-reverse-engineering>
