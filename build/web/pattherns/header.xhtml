@@ -2,13 +2,11 @@
     <header class="mdl-layout__header" id="header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title"><a class="custom-header-title" href="http://localhost:8080/allStorage/">All Storage</a></span>              
+            <span class="mdl-layout-title"><a class="custom-header-title" href="http://localhost:8080/Projeto-Allstorage/">All Storage</a></span>              
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
-
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">                
-
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                     <label class="mdl-button mdl-js-button mdl-button--icon" for="searchInput">
                         <i class="material-icons">search</i>
@@ -18,27 +16,26 @@
                         <label class="mdl-textfield__label" for="searchInput">Pesquisar...</label>
                     </div>
                 </div>
-
                 <a class="mdl-navigation__link" href="">
                     <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="3">notifications</div>
                 </a>
-
                 <button id="config" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">settings</i>
                 </button>
-
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="config">
                     <li class="mdl-menu__item">Minhas preferências</li>
                     <li class="mdl-menu__item">Configurações da conta</li>
-                    <li class="mdl-menu__item" onclick="window.location('http://localhost:8080/allStorage/login.jsp')">Sair</li>
+                    <li class="mdl-menu__item" onclick="window.location('http://localhost:8080/Projeto-Allstorage/login.jsp')">Sair</li>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="mdl-layout__drawer">
+    <!-- TERMINO DA BARRA DE NAVEGAÇÃO DO SITE -->
+    <!-- INICIO DO MENU -->
+    <div class="mdl-layout__drawer" id="menu">
         <span class="mdl-layout-title">
             <div class="custom-menu-img">
-                <img src="http://localhost:8080/allStorage/img/logo.png"/>
+                <img src="http://localhost:8080/Projeto-Allstorage/img/logo.png"/>
             </div>
         </span>
         <nav class="mdl-navigation">
@@ -63,19 +60,18 @@
         Estoque
     </a>
     <span class="custom-menu-header">CADASTRO</span>
-    <a id="menu-clientes" class="custom-menu-item mdl-navigation__link" href="http://localhost:8080/allStorage/clientes/index.xhtml">
+    <a id="menu-clientes" class="custom-menu-item mdl-navigation__link" href="http://localhost:8080/Projeto-Allstorage/faces/clientes/index.xhtml">
         <i class="material-icons">people</i>
         Clientes
     </a>
-    <a id="menu-produtos" class="custom-menu-item mdl-navigation__link" href="http://localhost:8080/allStorage/produtos/index.jsp">
+    <a id="menu-produtos" class="custom-menu-item mdl-navigation__link" href="http://localhost:8080/Projeto-Allstorage/faces/produtos/index.xhtml">
         <i class="material-icons">widgets</i>
         Produtos
     </a>
-    <a id="menu-categorias" class="custom-menu-item mdl-navigation__link" href="http://localhost:8080/allStorage/categorias/">
+    <a id="menu-categorias" class="custom-menu-item mdl-navigation__link" href="http://localhost:8080/Projeto-Allstorage/faces/categorias/index.xhtml">
         <i class="material-icons">pie_chart</i>
         Categorias
     </a>
         </nav>
     </div>
-
 </div>

@@ -33,7 +33,6 @@ public class DaoProduto {
     }
 
     public List<Produto> list() {
-
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
         List lista = session.createQuery("from Produto").list();

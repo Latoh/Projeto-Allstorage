@@ -1,11 +1,8 @@
 <ui:composition template="/pattherns/template.xhtml"
-
 xmlns:ui="http://java.sun.com/jsf/facelets"
 xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
         <ui:define name="title">AllStorage | Clientes</ui:define>
         <ui:define name="content">
-            
             <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
                 <main class="mdl-layout__content">
                     <div class="mdl-grid">
@@ -21,11 +18,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
                             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-cell--12-col">
                             <div class="mdl-grid">
                             <div class="mdl-tabs__tab-bar mdl-cell--12-col">
-                            <div class="mdl-cell--6-col">
-                                <a href="#cliente-tab-juridica" class="mdl-tabs__tab is-active">Jurídica</a>
-                                <a href="#cliente-tab-fisica" class="mdl-tabs__tab">Física</a>
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-layout--large-screen-only"> 
+                            <div class="mdl-cell mdl-cell--12-col mdl-layout--large-screen-only"> 
                             <div class="mdl-tooltip mdl-tooltip--large" for="visibility">Visualização</div>
                                 <button class="custom-button--small_icon mdl-button mdl-js-button mdl-js-ripple-effect" id="filter">
                                     <i class="material-icons">filter_list</i>
@@ -70,41 +63,8 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
                                         </td>
                                     </tr>
                                     </tbody>
-                                    </table>
-                                    </div>
-                                <div class="mdl-tabs__panel mdl-cell--12-col" id="cliente-tab-fisica">
-                                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell--12-col" >
-                                        <thead class="custom-table--head">
-                                            <tr>
-                                                <th class="mdl-data-table__cell--non-numeric">Nome</th>
-                                                <th class="mdl-data-table__cell--non-numeric">Sobrenome</th>
-                                                <th class="mdl-data-table__cell--non-numeric">Endereço</th>
-                                                <th class="mdl-data-table__cell--non-numeric">Telefone</th>
-                                                <th class="mdl-data-table__cell--non-numeric">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="mdl-data-table__cell--non-numeric"></td>
-                                                <td class="mdl-data-table__cell--non-numeric"></td>
-                                                <td class="mdl-data-table__cell--non-numeric"></td>
-                                                <td class="mdl-data-table__cell--non-numeric"></td>
-                                                <td class="mdl-data-table__cell--non-numeric"></td>
-                                                <td class="mdl-data-table__cell--non-numeric">
-                                                    <label for="checkbox" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
-                                                        <input  type = "checkbox" id ="checkbox" class="mdl-switch__input"></input> 
-                                                        <input  type = "checkbox" id ="checkbox" class="mdl-switch__input"></input>
-                                                    </label>
-                                                </td>
-                                                <td class="mdl-data-table__cell--non-numeric">
-                                                    <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                                                        <i class="material-icons">description</i>
-                                                    </button>
-                                                </td>   
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                </table>
+                            </div>
                             </div>
                             </div>
                             </div>
