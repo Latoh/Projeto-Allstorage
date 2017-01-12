@@ -10,17 +10,14 @@ package controller;
  * @author felip
  */
 
-import dao.DaoContato;
 import dao.DaoCliente;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import model.ClientePf;
-import model.Contato;
+import model.Cliente;
 import org.hibernate.Session;
 import util.HibernateUtil;
     
@@ -37,50 +34,50 @@ public class ClienteController implements Serializable {
         this.session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
     
-    private ClientePf cliente;
+    private Cliente cliente;
     private DataModel listaCliente;
 
     public DataModel getListarClientes() {          
-        List<ClientePf> lista = new DaoCliente().listcliente();
+        List<Cliente> lista = new DaoCliente().listcliente();
         listaCliente = new ListDataModel(lista);
         return listaCliente;
     }
 
-    public ClientePf getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(ClientePf cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
     public String prepararAdicionarCliente() {
-        cliente = new ClientePf();
-        return "gerenciarClientePf";
+        cliente = new Cliente();
+        return "gerenciarCliente";
     }
 
     public String prepararAlterarCliente() {
-        cliente = (ClientePf) (listaCliente.getRowData());
-        return "gerenciarClientePf";
+        cliente = (Cliente) (listaCliente.getRowData());
+        return "gerenciarCliente";
     }
 
     public String excluirCliente() {
-        ClientePf clienteTemp = (ClientePf) (listaCliente.getRowData());
+        Cliente clienteTemp = (Cliente) (listaCliente.getRowData());
         DaoCliente dao = new DaoCliente();
         dao.remove(clienteTemp);
-        return "index";
+        return "Index";
     }
 
     public String adicionarCliente() {
         DaoCliente dao = new DaoCliente();
         dao.save(cliente);
-        return "index";
+        return "Index";
     }
 
     public String alterarCliente() {
         DaoCliente dao = new DaoCliente();
         dao.update(cliente);
-        return "index";
+        return "Index";
     }
     
 }

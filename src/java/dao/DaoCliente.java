@@ -6,50 +6,47 @@
 package dao;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import model.ClientePf;
+import model.Cliente;
 import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import static util.HibernateUtil.getSessionFactory;
 
 /**
  *
  * @author felip
  */
-public class DaoCliente implements Dao{
+public class DaoCliente{
 
-    ClientePf cliente = new ClientePf();
-    public void save(ClientePf cliente) {
+    Cliente cliente = new Cliente();
+    public void save(Cliente cliente) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
         session.save(cliente);
         t.commit();   
     }
     
-    public ClientePf getClientePf(long id) {
+    public Cliente getCliente(long id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        return (ClientePf) session.load(ClientePf.class, id);
+        return (Cliente) session.load(Cliente.class, id);
     }
-    public List<ClientePf> listcliente() {
+    public List<Cliente> listcliente() {
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
-        List lista = session.createQuery("from ClientePf").list();
+        List lista = session.createQuery("from Cliente").list();
         t.commit();
         return lista;
         
     }
     
-    public void remove(ClientePf cliente) {
+    public void remove(Cliente cliente) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
         session.delete(cliente);
         t.commit();
     }
     
-    public void update(ClientePf cliente) {
+    public void update(Cliente cliente) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
         session.update(cliente);
