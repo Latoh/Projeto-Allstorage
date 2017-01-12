@@ -6,15 +6,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>All Storage | Novo Cliente</title>
-        <%@include file="../pattherns/bibliotecas.jsp"%>    
+        <%@include file="../patterns/bibliotecas.jsp"%>    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     </head>
     <body>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-            <%@include file="../pattherns/header.jsp"%>
+            <%@include file="../patterns/header.jsp"%>
 
-            <%@include file="../pattherns/menu.jsp" %>
+            <%@include file="../patterns/menu.jsp" %>
 
             <main class="mdl-layout__content">
                 <div class="mdl-grid">
