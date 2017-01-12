@@ -25,7 +25,7 @@ ArrayList <categoria> listaCategoria = categoria.getListaCategoria();
         <title>All Storage | Categorias</title>
         <link rel="stylesheet" type="text/css" href="categoria.css">
         <!-- Importação dos arquivos .js e .css -->
-        <%@include file="../pattherns/bibliotecas.jsp"%>       
+        <%@include file="../patterns/bibliotecas.jsp"%>       
     </head>
     <body onload="selecionarValor(this, 'idCategoriaAlterar', 'descricaoCategoriaAlterar', 'tipo');">
         
@@ -33,9 +33,9 @@ ArrayList <categoria> listaCategoria = categoria.getListaCategoria();
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         
             <!-- Importação do arquivo HEADER e MENU -->
-            <%@include file="../pattherns/header.jsp"%>
+            <%@include file="../patterns/header.jsp"%>
             
-            <%@include file="../pattherns/menu.jsp" %>
+            <%@include file="../patterns/menu.jsp" %>
             
             <!-- Início do conteúdo da tela de CATEGORIAS-->
             <main class="mdl-layout__content">
