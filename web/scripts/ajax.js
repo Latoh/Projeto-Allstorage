@@ -37,7 +37,7 @@ function XHConn()
         bComplete = false;
         sMethod = sMethod.toUpperCase();
         try {
-            if (sMethod == "GET") {
+            if (sMethod === "GET") {
                 xmlhttp.open(sMethod, sURL + "?" + sVars, true);
                 sVars = "";
             } else {
@@ -53,7 +53,7 @@ function XHConn()
 
             xmlhttp.onReadyStateChange() = function () {
                 
-                if (xmlhttp.readyState == 4 && !bComplete) {
+                if (xmlhttp.readyState === 4 && !bComplete) {
                     bComplete = true;
                     fnDone(xmlhttp);
                 }
@@ -88,9 +88,9 @@ function WSCep(url, par, include, bairro, cidade, estado, endereco)
 
         var xmldoc = oXML.responseXML;
         document.getElementById(bairro).value = xmldoc.getElementsByTagName("cep")[0].childNodes[0].childNodes[0].nodeValue;
-        document.getElementById(cidade).value = xmldoc.getElementsByTagName("cep")[0].childNodes[1].childNodes[0].nodeValue
-        document.getElementById(estado).value = xmldoc.getElementsByTagName("cep")[0].childNodes[5].childNodes[0].nodeValue
-        document.getElementById(endereco).value = xmldoc.getElementsByTagName("cep")[0].childNodes[4].childNodes[0].nodeValue
+        document.getElementById(cidade).value = xmldoc.getElementsByTagName("cep")[0].childNodes[1].childNodes[0].nodeValue;
+        document.getElementById(estado).value = xmldoc.getElementsByTagName("cep")[0].childNodes[5].childNodes[0].nodeValue;
+        document.getElementById(endereco).value = xmldoc.getElementsByTagName("cep")[0].childNodes[4].childNodes[0].nodeValue;
 
 
         //alert(xmldoc.getElementsByTagName("cep")[0].childNodes[0].childNodes[0].nodeValue);
@@ -435,7 +435,7 @@ function autenticaUsuario(login, senha) {
         var resultado = textResultado.split("|");
 
         // tratar retorno AJAX
-        if (resultado[1] == "true") {
+        if (resultado[1] === "true") {
             window.location('index.jsp');
         } else {
             msgAutentica.innerHTML = "Usuario ou senha invalidos";
