@@ -6,54 +6,53 @@
 package dao;
 
 import java.util.List;
-import model.Categoria;
+import model.Cliente;
+import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.HibernateUtil;
 
 /**
  *
- * @author Daan
+ * @author felip
  */
-public class DaoCategoria {
+public class DaoCliente{
 
-    Categoria categoria = new Categoria();
-
-    public void save(Categoria categoria) {
+    Cliente cliente = new Cliente();
+    public void save(Cliente cliente) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
-        session.save(categoria);
-        t.commit();
+        session.save(cliente);
+        t.commit();   
     }
-
-    public Categoria getCategoria(long id) {
+    
+    public Cliente getCliente(long id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        return (Categoria) session.load(Categoria.class, id);
-
+        return (Cliente) session.load(Cliente.class, id);
     }
-
-    public List<Categoria> listCategoria() {
-
+    public List<Cliente> listcliente() {
+        
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
-        List lista = session.createQuery("from Categoria").list();
+        List lista = session.createQuery("from Cliente").list();
         t.commit();
         return lista;
-
+        
     }
-
-    public void remove(Categoria categoria) {
+    
+    public void remove(Cliente cliente) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
-        session.delete(categoria);
+        session.delete(cliente);
         t.commit();
     }
-
-    public void update(Categoria categoria) {
+    
+    public void update(Cliente cliente) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
-        session.update(categoria);
+        session.update(cliente);
         t.commit();
     }
-
+    
 }
+  
+

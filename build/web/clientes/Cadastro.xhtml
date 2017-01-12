@@ -1,0 +1,180 @@
+<ui:composition template="/pattherns/template.xhtml"
+
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="title">AllStorage | Clientes</ui:define>
+    <ui:define name="content">
+
+        <main class="mdl-layout__content">
+            <div class="mdl-grid">
+
+                <div class="mdl-cell mdl-cell--12-col custom-box-page__title"><h4 class="title">Clientes</h4></div>
+                <div class="mdl-cell mdl-cell--12-col custom-box-breadcrumbs"><a class="custom-breadcrumbs__link" href="Index.xhtml">Clientes</a> <b class="custom-breadcrumbs__separator">></b> <a class="custom-breadcrumbs">Novo Cliente</a></div>
+
+                <div class="mdl-grid">					
+                    <div class="custom-card-cliente__new mdl-card mdl-shadow--2dp mdl-cell--12-col">
+                        <div class="mdl-card__title mdl-card--expand">
+                            <!-- Cadastro do Endereço do cliente -->
+                            <!-- Opções do cadastro do Endereço do cliente -->
+                            <div class="mdl-grid">
+                                <!-- Title do cadastro do Endereço do cliente -->
+                                <div class="mdl-cell--12-col">
+                                    <h5>Dados</h5>
+                                </div>	
+
+                                <div class="clienteDadosContainerCPF mdl-cell--12-col" id="clienteDadosContainerCPF">
+                                    <div class="mdl-cell--12-col custom-cliente-text__input" id="clienteContainerNome">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <h:inputText class="mdl-textfield__input"  id="clienteDadosNome"  maxlength="60" onblur="verificaString('clienteDadosNome', 'clienteDadosNomeLabel');"/>
+                                            <label class="mdl-textfield__label" for="clienteDadosNome" id="clienteDadosNomeLabel">Nome</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="mdl-cell--12-col custom-cliente-text__input" id="clienteContainerSobrenome">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <h:inputText class="mdl-textfield__input"  id="clienteDadosSobrenome"  maxlength="60" onblur="verificaString('clienteDadosSobrenome', 'clienteDadosSobrenomeLabel');"/>
+                                            <label class="mdl-textfield__label" for="clienteDadosSobrenome" id="clienteDadosSobrenomeLabel">Sobrenome</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="mdl-cell--12-col custom-cliente-text__input" id="clienteContainerCPF">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <h:inputText class="mdl-textfield__input"  id="clienteDadosCPF"  maxlength="14" onkeypress="MascaraCPF(clienteDadosCPF);" onblur="verificaString('clienteDadosCPF', 'clienteDadosCPFLabel');"/>
+                                            <label class="mdl-textfield__label" for="clienteDadosCPF" id="clienteDadosCPFLabel">CPF</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="custom-card-cliente__new mdl-card mdl-shadow--2dp mdl-cell--4-col">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <!-- Cadastro do Endereço do cliente -->
+                        <!-- Opções do cadastro do Endereço do cliente -->
+                        <div class="mdl-grid">
+                            <!-- Title do cadastro do Endereço do cliente -->
+                            <div class="mdl-cell--12-col">
+                                <h5>Endereço</h5>
+                            </div>					
+
+                            <!-- Inputs dos dados do cliente -->
+                            <div class="mdl-cell--4-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="9"  id="clienteEnderecoCep" onkeypress="MascaraCep(clienteEnderecoCep);"/>
+                                    <label class="mdl-textfield__label" for="clienteEnderecoCep">CEP</label>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell--8-col">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="60" id="clienteEnderecoLogradouro" />
+                                    <label class="mdl-textfield__label" for="clienteEnderecoLogradouro">Logradouro</label>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell--4-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="6" id="clienteEnderecoNumero" />
+                                    <label class="mdl-textfield__label" for="clienteEnderecoNumero">Nº</label>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell--8-col">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="45" id="clienteEnderecoComplemento"/>
+                                    <label class="mdl-textfield__label" for="clienteEnderecoComplemento">Complemento</label>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell--6-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="60" id="clienteEnderecoBairro" />
+                                    <label class="mdl-textfield__label" for="clienteEnderecoBairro">Bairro</label>
+                                </div>
+                            </div>
+
+
+                            <div class="mdl-cell--6-col">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  id="clienteEnderecoCidade" />
+                                    <label class="mdl-textfield__label" for="clienteEnderecoCidade">Cidade</label>
+                                </div>    
+                            </div>    
+
+                            <div class="mdl-cell--6-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  id="clienteEnderecoEstado" />
+                                    <label class="mdl-textfield__label" for="clienteEnderecoEstado">Estado</label>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell--6-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"    id="clienteEnderecoPais" />
+                                    <label class="mdl-textfield__label" for="clienteEnderecoPais">País</label>
+                                </div>
+                            </div>                                        
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="custom-card-cliente__new mdl-card mdl-shadow--2dp mdl-cell--4-col">
+                    <div class="mdl-card__title mdl-card--expand">					   
+                        <!-- Cadastro do CONTATO do cliente -->
+                        <!-- Opções do cadastro do CONTATO do cliente -->
+                        <div class="mdl-grid">
+                            <!-- Title do cadastro do CONTATO do cliente -->
+                            <div class="mdl-cell--12-col">
+                                <h5>Contato</h5>
+                            </div>
+                            <!-- Inputs dos dados do cliente -->
+
+                            <div class="mdl-cell--12-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="45" id="clienteContatoEmail"/>
+                                    <label class="mdl-textfield__label" for="clienteContatoEmail">Email</label>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell--2-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="5" id="clienteContatoDDD" onkeypress="MascaraDDD(clienteContatoDDD);" onblur="MascaraDDD(clienteContatoDDD);"/>
+                                    <label class="mdl-textfield__label" for="clienteContatoDDD">DDD</label>
+                                </div>
+                            </div>     
+
+                            <div class="mdl-cell--10-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"   maxlength="9"  id="clienteContatoTelefone" onkeypress="MascaraTelefone(clienteContatoTelefone);"/>
+                                    <label class="mdl-textfield__label" for="clienteContatoTelefone">Telefone</label>
+                                </div>
+                            </div>
+
+                            <div class="mdl-cell--2-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="5"  id="clienteContatoDDD2" onkeypress="MascaraDDD(clienteContatoDDD2);" onblur="MascaraDDD(clienteContatoDDD2);"/>
+                                    <label class="mdl-textfield__label" for="clienteContatoDDD2">DDD</label>
+                                </div>
+                            </div>     
+
+                            <div class="mdl-cell--10-col custom-cliente-text__input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputText class="mdl-textfield__input"  maxlength="9"  id="clienteContatoTelefone2" onkeypress="MascaraTelefone(clienteContatoTelefone2);"/>
+                                    <label class="mdl-textfield__label" for="clienteContatoTelefone2">Telefone</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main> 
+
+
+    </ui:define>
+</ui:composition>
