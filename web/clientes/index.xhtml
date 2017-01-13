@@ -1,4 +1,6 @@
+
 <ui:composition template="/pattherns/template.xhtml"
+<<<<<<< HEAD
 xmlns:ui="http://java.sun.com/jsf/facelets"
 xmlns:f="http://xmlns.jcp.org/jsf/core">
         <ui:define name="title">AllStorage | Clientes</ui:define>
@@ -20,20 +22,50 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
                             <div class="mdl-tabs__tab-bar mdl-cell--12-col">
                             <div class="mdl-cell mdl-cell--12-col mdl-layout--large-screen-only"> 
                             <div class="mdl-tooltip mdl-tooltip--large" for="visibility">Visualização</div>
+=======
+
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="title">AllStorage | Clientes</ui:define>
+    <ui:define name="content">
+
+
+        <main class="mdl-layout__content">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col"><h4/></div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col"><h4 class="title">Clientes</h4></div>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">-
+                    <h:commandButton onclick="location.href = '/Cadastro.xhtml'"  value="Novo Cliente" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="addCliente"/>
+                </div>
+                <div class="mdl-tooltip mdl-tooltip--large" for="addCliente">Novo cliente</div>
+                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-cell--12-col">
+                    <div class="mdl-grid">
+                        <div class="mdl-tabs__tab-bar mdl-cell--12-col">
+                            <div class="mdl-cell--6-col">
+                                <a href="#cliente-tab-juridica" class="mdl-tabs__tab is-active">Jurídica</a>
+                                <a href="#cliente-tab-fisica" class="mdl-tabs__tab">Física</a>
+                            </div>
+                            <div class="mdl-cell mdl-cell--6-col mdl-layout--large-screen-only"> 
+                                <div class="mdl-tooltip mdl-tooltip--large" for="visibility">Visualização</div>
+>>>>>>> 6901b3dd31f0d77f3cad2c4d73171947d1aa041e
                                 <button class="custom-button--small_icon mdl-button mdl-js-button mdl-js-ripple-effect" id="filter">
                                     <i class="material-icons">filter_list</i>
                                 </button>
-                            <div class="mdl-tooltip mdl-tooltip--large" for="filter">Filtro</div>
+                                <div class="mdl-tooltip mdl-tooltip--large" for="filter">Filtro</div>
                                 <button class="custom-button--small_icon mdl-button mdl-js-button mdl-js-ripple-effect" id="export">
                                     <i class="material-icons">cloud_download</i>
                                 </button>
-                            <div class="mdl-tooltip mdl-tooltip--large" for="export">Exportar</div>
+                                <div class="mdl-tooltip mdl-tooltip--large" for="export">Exportar</div>
                             </div>
-                            </div>
-                            <div id="boxVisualizacao"></div>
-                            <div class="mdl-tabs__panel mdl-cell--12-col is-active" id="cliente-tab-juridica">
-                                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell--12-col" >
-                                    <thead class="custom-table--head">
+                        </div>
+                        <div id="boxVisualizacao"></div>
+                        <div class="mdl-tabs__panel mdl-cell--12-col is-active" id="cliente-tab-juridica">
+                            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell--12-col" >
+                                <thead class="custom-table--head">
                                     <tr>
                                         <th class="mdl-data-table__cell--non-numeric">Código</th>
                                         <th class="mdl-data-table__cell--non-numeric">Nome Fantasia</th>
@@ -42,8 +74,8 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
                                         <th class="mdl-data-table__cell--non-numeric">Telefone</th>
                                         <th class="mdl-data-table__cell--non-numeric">Status</th>
                                     </tr>
-                                    </thead>
-                                    <tbody>
+                                </thead>
+                                <tbody>
                                     <tr>
                                         <td class="mdl-data-table__cell--non-numeric"></td>
                                         <td class="mdl-data-table__cell--non-numeric"></td>
@@ -57,11 +89,12 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
                                             </label>
                                         </td>
                                         <td class="mdl-data-table__cell--non-numeric">
-                                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                                            <i class="material-icons">description</i>
-                                        </button>
+                                            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                                <i class="material-icons">description</i>
+                                            </button>
                                         </td>
                                     </tr>
+<<<<<<< HEAD
                                     </tbody>
                                 </table>
                             </div>
@@ -72,9 +105,55 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="window.location('../cadastrar')">
                                 <i class="material-icons">add</i>
                             </button>
+=======
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mdl-tabs__panel mdl-cell--12-col" id="cliente-tab-fisica">
+                            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell--12-col" >
+                                <thead class="custom-table--head">
+                                    <tr>
+                                        <th class="mdl-data-table__cell--non-numeric">Código</th>
+                                        <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                                        <th class="mdl-data-table__cell--non-numeric">Sobrenome</th>
+                                        <th class="mdl-data-table__cell--non-numeric">Endereço</th>
+                                        <th class="mdl-data-table__cell--non-numeric">Telefone</th>
+                                        <th class="mdl-data-table__cell--non-numeric">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric"></td>
+                                        <td class="mdl-data-table__cell--non-numeric"></td>
+                                        <td class="mdl-data-table__cell--non-numeric"></td>
+                                        <td class="mdl-data-table__cell--non-numeric"></td>
+                                        <td class="mdl-data-table__cell--non-numeric"></td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <label for="checkbox" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                                                <input  type = "checkbox" id ="checkbox" class="mdl-switch__input"></input> 
+                                                <input  type = "checkbox" id ="checkbox" class="mdl-switch__input"></input>
+                                            </label>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                                <i class="material-icons">description</i>
+                                            </button>
+                                        </td>   
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+>>>>>>> 6901b3dd31f0d77f3cad2c4d73171947d1aa041e
                     </div>
-                </main> 
+                </div>
             </div>
-        
+            <div class="floting-action-button">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="window.location('../cadastrar')">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </main> 
+
+
     </ui:define>
 </ui:composition>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function XHConn()
 {
     var xmlhttp, bComplete = false;
@@ -69,6 +70,8 @@ function XHConn()
 }
 //_____________________________________________________________
 
+=======
+>>>>>>> 6901b3dd31f0d77f3cad2c4d73171947d1aa041e
 function WSCep(url, par, include, bairro, cidade, estado, endereco)
 {
 

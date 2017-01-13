@@ -7,14 +7,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>All Storage | Produtos</title>
-        <%@include file="../pattherns/bibliotecas.jsp"%>       
+        <%@include file="../patterns/bibliotecas.jsp"%>       
     </head>
     <body onload="writeCookie('sessionBox','false',3)">
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         
-            <%@include file="../pattherns/header.jsp"%>
+            <%@include file="../patterns/header.jsp"%>
             
-            <%@include file="../pattherns/menu.jsp" %>
+            <%@include file="../patterns/menu.jsp" %>
             
             <main class="mdl-layout__content">
                 
