@@ -1,9 +1,7 @@
 <ui:composition template="/pattherns/template.xhtml"
-
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
-
     <ui:define name="title">AllStorage | Clientes</ui:define>
     <ui:define name="content">
 
@@ -64,7 +62,7 @@
 
                                 <div class="mdl-cell--12-col custom-cliente-text__input" id="clienteContainerCNPJ">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="clienteCpfCnpj">
-                                        <h:inputText class="mdl-textfield__input" type="text" id="clienteDadosCNPJ" name="clienteDadosCNPJ" maxlength="20" onkeypress="MascaraCNPJ(clienteDadosCNPJ);" onblur="verificaString('clienteDadosCNPJ', 'clienteDadosCNPJLabel');"/>
+                                        <h:inputText class="mdl-textfield__input" id="clienteDadosCNPJ" maxlength="20" onkeypress="MascaraCNPJ(clienteDadosCNPJ);" onblur="verificaString('clienteDadosCNPJ', 'clienteDadosCNPJLabel');"/>
                                         <label class="mdl-textfield__label" for="clienteDadosCNPJ" id="clienteDadosCNPJLabel">CNPJ</label>
                                     </div>
                                 </div>
