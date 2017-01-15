@@ -4,7 +4,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <ui:define name="title">AllStorage | Clientes</ui:define>
     <ui:define name="content">
-
+        
+        <h:outputScript library="js" name="./scripts/cliente/cadastro_cliente.js" />
         <main class="mdl-layout__content">
             <div class="mdl-grid">
 
@@ -73,21 +74,21 @@
 
                                 <div class="mdl-cell--12-col custom-cliente-text__input" id="clienteContainerNome">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <h:inputText class="mdl-textfield__input" type="text" id="clienteDadosNome" name="clienteDadosNome" maxlength="60" onblur="verificaString('clienteDadosNome', 'clienteDadosNomeLabel');"/>
+                                        <h:inputText class="mdl-textfield__input" id="clienteDadosNome" maxlength="60" onblur="verificaString('clienteDadosNome', 'clienteDadosNomeLabel');"/>
                                         <label class="mdl-textfield__label" for="clienteDadosNome" id="clienteDadosNomeLabel">Nome</label>
                                     </div>
                                 </div>
 
                                 <div class="mdl-cell--12-col custom-cliente-text__input" id="clienteContainerSobrenome">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <h:inputText class="mdl-textfield__input" type="text" id="clienteDadosSobrenome" name="clienteDadosSobrenome" maxlength="60" onblur="verificaString('clienteDadosSobrenome', 'clienteDadosSobrenomeLabel');"/>
+                                        <h:inputText class="mdl-textfield__input" id="clienteDadosSobrenome" maxlength="60" onblur="verificaString('clienteDadosSobrenome', 'clienteDadosSobrenomeLabel');"/>
                                         <label class="mdl-textfield__label" for="clienteDadosSobrenome" id="clienteDadosSobrenomeLabel">Sobrenome</label>
                                     </div>
                                 </div>
 
                                 <div class="mdl-cell--12-col custom-cliente-text__input" id="clienteContainerCPF">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <h:inputText class="mdl-textfield__input" type="text" id="clienteDadosCPF" name="clienteDadosCPF" maxlength="14" onkeypress="MascaraCPF(clienteDadosCPF);" onblur="verificaString('clienteDadosCPF', 'clienteDadosCPFLabel');"/>
+                                        <h:inputText class="mdl-textfield__input" id="clienteDadosCPF" maxlength="14" onkeypress="MascaraCPF(clienteDadosCPF);" onblur="verificaString('clienteDadosCPF', 'clienteDadosCPFLabel');"/>
                                         <label class="mdl-textfield__label" for="clienteDadosCPF" id="clienteDadosCPFLabel">CPF</label>
                                     </div>
                                 </div>
