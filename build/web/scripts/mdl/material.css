@@ -7397,17 +7397,17 @@ input.mdl-button[type="submit"] {
   transition-property: background-color;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-  .mdl-layout__obfuscator.is-visible {
+.mdl-layout__obfuscator.is-visible {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible; }
-  @supports (pointer-events:auto) {
+ @supports(pointer-events:auto) {
     .mdl-layout__obfuscator {
       background-color: rgba(0, 0, 0, 0.5);
       opacity: 0;
       transition-property: opacity;
       visibility: visible;
       pointer-events: none; }
-      .mdl-layout__obfuscator.is-visible {
+.mdl-layout__obfuscator.is-visible {
         pointer-events: auto;
         opacity: 1; } }
 
