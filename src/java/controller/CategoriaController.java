@@ -26,7 +26,7 @@ public class CategoriaController implements Serializable {
     
     Session session = null;
     /**
-     * Creates a new instance f ContatoController
+     * Creates a new instance of CategoriaController
      */
         
     public CategoriaController() {
@@ -35,9 +35,10 @@ public class CategoriaController implements Serializable {
     
     private Categoria categoria;
     private DataModel listaCategoria;
+    public long idCategoriaSelecionada;
 
     public DataModel getListarCategoria() {          
-        List<Categoria> lista = new DaoCategoria().listCategoria();
+        List<Categoria> lista = new DaoCategoria().list();
         listaCategoria = new ListDataModel(lista);
         return listaCategoria;
     }
@@ -73,12 +74,21 @@ public class CategoriaController implements Serializable {
         return "index";
     }
 
-    public String alterarCliente() {
+    public String alterarCategoria() {
         DaoCategoria dao = new DaoCategoria();
         dao.update(categoria);
         return "index";
     }
     
+    /*
+    TESTE PARA O CAMPO DE TIPOS NA TELA DE CATEGORIAS
+    public void atualizaTipoPorCategoria(){
+        if(idCategoriaSelecionada =! null){
+            TipoController tipo = new TipoController();
+            tipo.getTipoById(idCategoriaSelecionada);
+        }
+    }
+    */
 }
 
 

@@ -32,7 +32,7 @@ public class DaoCategoria {
 
     }
 
-    public List<Categoria> listCategoria() {
+    public List<Categoria> list() {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();

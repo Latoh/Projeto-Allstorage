@@ -29,7 +29,6 @@ public class DaoTipo {
     public Tipo getTipo(long id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         return (Tipo) session.load(Tipo.class, id);
-
     }
 
     public List<Tipo> list() {
@@ -39,7 +38,6 @@ public class DaoTipo {
         List lista = session.createQuery("from Tipo").list();
         t.commit();
         return lista;
-
     }
 
     public void remove(Tipo tipo) {
