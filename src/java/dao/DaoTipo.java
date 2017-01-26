@@ -53,4 +53,9 @@ public class DaoTipo {
         session.update(tipo);
         t.commit();
     }
+    
+    public Tipo getTipoByIdCategoria(long idCategoria) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        return (Tipo) session.load(Tipo.class, idCategoria);
+    }
 }

@@ -35,14 +35,20 @@ public class CategoriaController implements Serializable {
     
     private Categoria categoria;
     private DataModel listaCategoria;
-    public long idCategoriaSelecionada;
+    private List categoriasLista;
 
-    public DataModel getListarCategoria() {          
+    
+    public List getCategoriasLista() {
         List<Categoria> lista = new DaoCategoria().list();
+        categoriasLista = lista;
         listaCategoria = new ListDataModel(lista);
-        return listaCategoria;
+        return categoriasLista;
     }
 
+    public void setCategoriasLista(List categoriasLista) {
+        this.categoriasLista = categoriasLista;
+    }
+    
     public Categoria getCategoria() {
         return categoria;
     }
@@ -79,16 +85,6 @@ public class CategoriaController implements Serializable {
         dao.update(categoria);
         return "index";
     }
-    
-    /*
-    TESTE PARA O CAMPO DE TIPOS NA TELA DE CATEGORIAS
-    public void atualizaTipoPorCategoria(){
-        if(idCategoriaSelecionada =! null){
-            TipoController tipo = new TipoController();
-            tipo.getTipoById(idCategoriaSelecionada);
-        }
-    }
-    */
 }
 
 

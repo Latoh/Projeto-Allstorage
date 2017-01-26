@@ -9,6 +9,7 @@ import dao.DaoTipo;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Named;
@@ -85,4 +86,11 @@ public class TipoController implements Serializable{
         return "index";
     }
     
+    public void selecionaTipoPorCategoria(AjaxBehaviorEvent event) {
+        System.out.println("TESTE TIPO");
+    }
+    
+    public void teste(){
+        System.out.println("TESTE TIPO 2");
+    }
 }
