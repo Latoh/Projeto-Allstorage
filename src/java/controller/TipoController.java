@@ -36,7 +36,28 @@ public class TipoController implements Serializable{
     
     private Tipo tipo;
     private DataModel listaTipo;
+    private List <Tipo> listaTipoPorCategoria;
+    private String idCategoria;
 
+    public String getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(String idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+    
+    public List getListaTipoPorCategoria() {
+        List<Tipo> lista = new DaoTipo().list();
+        listaTipoPorCategoria = lista;
+        listaTipo = new ListDataModel(lista);
+        return listaTipoPorCategoria;
+    }
+
+    public void setListaTipoPorCategoria(List listaTipoPorCategoria) {
+        this.listaTipoPorCategoria = listaTipoPorCategoria;
+    }
+    
     public DataModel getListarTipo() {          
         List<Tipo> lista = new DaoTipo().list();
         listaTipo = new ListDataModel(lista);
@@ -86,11 +107,10 @@ public class TipoController implements Serializable{
         return "index";
     }
     
-    public void selecionaTipoPorCategoria(AjaxBehaviorEvent event) {
-        System.out.println("TESTE TIPO");
-    }
-    
-    public void teste(){
-        System.out.println("TESTE TIPO 2");
+    public List<Tipo> selecionaTipoPorCategoria(AjaxBehaviorEvent event) {
+        DaoTipo dao = new DaoTipo();
+        System.out.println("PRINTANDO CATEGORIA ID "+ idCategoria);
+       // listaTipoPorCategoria = dao.getTipoByIdCategoria(idCategoria);
+        return listaTipoPorCategoria;
     }
 }

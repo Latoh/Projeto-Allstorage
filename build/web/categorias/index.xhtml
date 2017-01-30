@@ -2,7 +2,6 @@
 xmlns:ui="http://java.sun.com/jsf/facelets"
 xmlns:f="http://xmlns.jcp.org/jsf/core"
 xmlns:h="http://xmlns.jcp.org/jsf/html">
-    
         <ui:define name="title">AllStorage | Categorias</ui:define>
         <ui:define name="content">
         <h:outputScript library="js" name="http://localhost:8080/Projeto-Allstorage/scripts/categoria/modal_categoria.js" />
@@ -24,13 +23,19 @@ xmlns:h="http://xmlns.jcp.org/jsf/html">
                             <div class="mdl-cell--8-col custom-cliente-text__input">
                                 <!-- Select para selecionar a CATEGORIA -->
                                 <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label" style="width:100%;" >
-                                    <!-- DEBUGAR O AJAX AGORA ESTA ACONTECENDO ALGO... -->
+                                    <!-- AJAX funciona apenas dentro de um form
+                                    criado form para o select de categorias -->
                                     <h:form id="categoria_card">
-                                        <h:selectOneMenu id="categoria" class="mdl-selectfield__select" value="#{CategoriaController.categoriasLista}">
-                                            <!--<f:selectItem itemLabel="Selecione uma categoria..."/> -->
+                                        <h:selectOneMenu id="categoria" class="mdl-selectfield__select" value="#{TipoController.idCategoria}">
+                                            <f:selectItem itemLabel="Selecione uma categoria..."/>
                                             <f:selectItems value="#{CategoriaController.categoriasLista}" var="categoria" 
                                             itemValue="#{categoria.nomeCategoria}" itemLabel="#{categoria.nomeCategoria}"/>
-                                            <f:ajax event="change" listener="#{TipoController.selecionaTipoPorCategoria(event)}"/>
+                                            <!-- 
+                                            Adding immediate="true" tells Ajax to ignore any potential 
+                                            validation errors and call the change event anyway...
+                                            -->
+                                            <f:ajax immediate="true" event="change" listener="#{TipoController.selecionaTipoPorCategoria(event)}" 
+                                                    render="tipo_selectone" execute="@this"/>
                                         </h:selectOneMenu>
                                     </h:form>
                                     <label class="mdl-selectfield__label" for="categoria">Categoria</label>
@@ -71,9 +76,19 @@ xmlns:h="http://xmlns.jcp.org/jsf/html">
                             <div class="mdl-cell--8-col custom-cliente-text__input">
                                 <!-- Select para selecionar o TIPO de acordo com a categoria selecionada -->
                                 <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label" style="width:100%;">
-                                    <select id="tipo" class="mdl-selectfield__select" onchange="selecionarTipoListarAtributos(this,'idTipoAlterar','atributoPorTipo','atributoPorTipo')">
-                                            <option value="tipo-1">Selecione uma categoria...</option>
-                                    </select>
+                                    <h:form id="tipo_card">
+                                        <h:selectOneMenu id="tipo_selectone" class="mdl-selectfield__select">
+                                            <f:selectItem itemLabel="Selecione uma categoria..."/>
+                                            <f:selectItems value="#{TipoController.listaTipoPorCategoria}" var="tipo" 
+                                            itemValue="#{tipo.nomeTipo}" itemLabel="#{tipo.nomeTipo}"/>
+                                            <!-- 
+                                            Adding immediate="true" tells Ajax to ignore any potential 
+                                            validation errors and call the change event anyway...
+                                            
+                                            <f:ajax immediate="true" event="change" listener="#{TipoController.selecionaTipoPorCategoria(event)}"/>
+                                            -->
+                                        </h:selectOneMenu>
+                                    </h:form>
                                     <label class="mdl-selectfield__label" for="tipo">Tipo do produto</label>
                                 </div>  
                             </div>
